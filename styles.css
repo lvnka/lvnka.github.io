@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, h1, h2, h3, p, ul, li, main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f8f9fa;
+    color: #222;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+h1, h2, h3 {
+    color: #2a2a2a;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+ul {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 16px;
+        margin: 16px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
