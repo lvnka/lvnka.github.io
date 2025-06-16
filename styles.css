@@ -1,75 +1,41 @@
-body, h1, h2, h3, p, ul, li, main {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f8f9fa;
-    color: #222;
-    line-height: 1.6;
-    text-align: center; /* Dodane wyśrodkowanie tekstu */
+    background: black;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 32px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    display: flex;              /* Dodane do wyśrodkowania zawartości */
-    flex-direction: column;     /* Ustawienie kierunku na kolumnę */
-    align-items: center;        /* Wyśrodkowanie w poziomie */
-    justify-content: center;    /* Wyśrodkowanie w pionie */
+.matrix {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
 }
 
-h1, h2, h3, p, ul {
-    text-align: center;
+h1, h2, h3, p, a, span, div {
+    color: #00ff41;
+    text-shadow: 0 0 8px #00ff41, 0 0 2px #fff;
 }
 
-h1, h2, h3 {
-    color: #2a2a2a;
-    margin-bottom: 16px;
-}
-
-h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-}
-
-h3 {
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-
-p {
-    margin-bottom: 16px;
-}
-
-ul {
-    margin-bottom: 16px;
-    padding-left: 24px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-@media (max-width: 600px) {
-    main {
-        padding: 16px;
-        margin: 16px;
+/* Matrix rain effect */
+@keyframes matrix-fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
     }
-    h1 {
-        font-size: 2rem;
-    }
+}
+
+.matrix-char {
+    position: absolute;
+    top: -2em;
+    font-size: 1.5em;
+    opacity: 0.8;
+    animation: matrix-fall linear infinite;
+    color: #00ff41;
+    text-shadow: 0 0 8px #00ff41, 0 0 2px #fff;
 }
 /* From Uiverse.io by jeremyssocial */ 
 @keyframes blinkCursor {
@@ -92,7 +58,7 @@ li {
     width: 0;
   }
 }
-/` * From Uiverse.io by jeremyssocial */
+
 .terminal-loader {
   border: 0.1em solid #333;
   background-color: #1a1a1a;
@@ -162,4 +128,3 @@ li {
     blinkCursor 0.5s step-end infinite alternate;
   margin-top: 1.5em;
 }
-/*end*/
