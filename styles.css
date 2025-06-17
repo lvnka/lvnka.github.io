@@ -7,6 +7,89 @@
     url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.ttf")format("truetype"),
     url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.svg#Druk Wide Bold")format("svg");
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+.logo {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  text-shadow: 0 2px 24px #000a;
+  user-select: none;
+}
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #bdbdbd;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.03em;
+}
+.cta-btn {
+  background: linear-gradient(90deg, #7f5af0 0%, #2cb67d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 32px;
+  padding: 1.1em 2.8em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 4px 32px #0004;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  outline: none;
+  margin-bottom: 2.5rem;
+}
+.cta-btn:hover, .cta-btn:focus {
+  background: linear-gradient(90deg, #2cb67d 0%, #7f5af0 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 40px #0006;
+}
+.links {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s;
+  letter-spacing: 0.02em;
+}
+.links a:hover {
+  opacity: 1;
+  color: #7f5af0;
+}
 body {
   background-color: black;
 }
