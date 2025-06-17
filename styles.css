@@ -70,3 +70,26 @@ a {
   margin-right: auto;
   width: 50%;
 }
+
+#intro-loader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#intro-text {
+  color: white;
+  font-size: 2.5em;
+  font-family: "Druk Wide Bold";
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeInText 1.2s forwards;
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
