@@ -99,11 +99,82 @@
             color: #ffb347;
             text-shadow: 0 2px 8px #000a;
         }
+        .heart-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .checkbox {
+            display: none;
+        }
+        .svg-container {
+            position: relative;
+            width: 48px;
+            height: 48px;
+        }
+        .svg-outline,
+        .svg-filled,
+        .svg-celebrate {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #ffb347;
+            stroke-width: 2;
+            transition: all 0.3s;
+        }
+        .svg-filled {
+            stroke: none;
+            fill: #ffb347;
+        }
+        .svg-celebrate {
+            stroke: none;
+            fill: rgba(255, 179, 71, 0.7);
+            opacity: 0;
+        }
+        .checkbox:checked + .svg-container .svg-outline {
+            opacity: 0;
+        }
+        .checkbox:checked + .svg-container .svg-filled {
+            opacity: 1;
+        }
+        .checkbox:checked + .svg-container .svg-celebrate {
+            animation: celebrate 0.6s forwards;
+        }
+        @keyframes celebrate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
+    <input type="checkbox" id="enter-site" style="display:none;">
     <div id="intro-loader">
-      <span id="intro-text">Witaj na stronie!</span>
+      <div>
+        <span id="intro-text">Witaj na stronie!</span>
+        <br><br>
+        <label class="heart-container" for="enter-site">
+          <input type="checkbox" class="checkbox" style="display:none;">
+          <span class="svg-container">
+            <!-- Heart SVG outline -->
+            <svg class="svg-outline" width="48" height="48" viewBox="0 0 24 24">
+              <path d="M12 21s-6.5-5.7-8.5-8.1C1.7 10.1 2.6 7.1 5.1 5.6c2.1-1.2 4.7-0.5 6.1 1.3C12.2 5.1 14.8 4.4 16.9 5.6c2.5 1.5 3.4 4.5 1.6 7.3C18.5 15.3 12 21 12 21z" />
+            </svg>
+            <!-- Heart SVG filled -->
+            <svg class="svg-filled" width="48" height="48" viewBox="0 0 24 24">
+              <path d="M12 21s-6.5-5.7-8.5-8.1C1.7 10.1 2.6 7.1 5.1 5.6c2.1-1.2 4.7-0.5 6.1 1.3C12.2 5.1 14.8 4.4 16.9 5.6c2.5 1.5 3.4 4.5 1.6 7.3C18.5 15.3 12 21 12 21z" />
+            </svg>
+            <!-- Heart SVG celebrate (opcjonalnie) -->
+            <svg class="svg-celebrate" width="48" height="48" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </span>
+        </label>
+        <div style="color:white;font-family:'Druk Wide Bold';margin-top:10px;">Kliknij serce, by wejść</div>
+      </div>
     </div>
     <div class="scroll-container" id="letters">
         <div class="letter-card">
