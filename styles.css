@@ -1,130 +1,70 @@
-body {
-    background: black;
-    color: #00ff41;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    min-height: 100vh;
+@font-face {
+    font-family: "Druk Wide Bold";
+    src: url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.eot");
+    src: url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.svg#Druk Wide Bold")format("svg");
+}
+
+ pre {
+        text-align: center;
+        color:green
+        }
+        h1 {text-align: center;
+            color:purple;
+          font-family: "Druk Wide Bold";
+        }
+        h2 {text-align: center;
+        color:purple;
+         font-family: "Druk Wide Bold";
+        }
+        h3 {text-align: center;
+        color:purple;
+         font-family: "Druk Wide Bold";
+        }
+        h7 {text-align: center;
+            color:black;
+          font-family: "Druk Wide Bold";
+        }
+        div {text-align: center;
+        color:white;
+         font-family: "Druk Wide Bold";
+        }
+        .navbar ul{
+    list-style-type: none;
+    background-color: hsl(0, 0%, 25%);
+    padding: 0px;
+    margin: 0px;
     overflow: hidden;
+    font-family: "Druk Wide Bold";
 }
-
-.matrix {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 0;
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    font-family: "Druk Wide Bold";
 }
-
-h1, h2, h3, p, a, span, div {
-    color: #00ff41;
-    text-shadow: 0 0 8px #00ff41, 0 0 2px #fff;
+.navbar li{
+    float: left;
+    font-family: "Druk Wide Bold";
 }
-
-/* Matrix rain effect */
-@keyframes matrix-fall {
-    to {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
+img {text-align: center;
+            color:white;
+          font-family: "Druk Wide Bold";
 }
-
-.matrix-char {
-    position: absolute;
-    top: -2em;
-    font-size: 1.5em;
-    opacity: 0.8;
-    animation: matrix-fall linear infinite;
-    color: #00ff41;
-    text-shadow: 0 0 8px #00ff41, 0 0 2px #fff;
-}
-/* From Uiverse.io by jeremyssocial */ 
-@keyframes blinkCursor {
-  50% {
-    border-right-color: transparent;
-  }
-}
-
-@keyframes typeAndDelete {
-  0%,
-  10% {
-    width: 0;
-  }
-  45%,
-  55% {
-    width: 6.2em;
-  } /* adjust width based on content */
-  90%,
-  100% {
-    width: 0;
-  }
-}
-
-.terminal-loader {
-  border: 0.1em solid #333;
-  background-color: #1a1a1a;
-  color: #0f0;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1em;
-  padding: 1.5em 1em;
-  width: 12em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.terminal-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1.5em;
-  background-color: #333;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  padding: 0 0.4em;
-  box-sizing: border-box;
-}
-
-.terminal-controls {
-  float: right;
-}
-
-.control {
-  display: inline-block;
-  width: 0.6em;
-  height: 0.6em;
-  margin-left: 0.4em;
-  border-radius: 50%;
-  background-color: #777;
-}
-
-.control.close {
-  background-color: #e33;
-}
-
-.control.minimize {
-  background-color: #ee0;
-}
-
-.control.maximize {
-  background-color: #0b0;
-}
-
-.terminal-title {
-  float: left;
-  line-height: 1.5em;
-  color: #eee;
-}
-
-.text {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 0.2em solid green; /* Cursor */
-  animation:
-    typeAndDelete 4s steps(11) infinite,
-    blinkCursor 0.5s step-end infinite alternate;
-  margin-top: 1.5em;
+a {
+        text-align: center;
+        color:purple;
+        font-family: "Druk Wide Bold";
+        }
+        
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
