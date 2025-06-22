@@ -38,6 +38,7 @@
     display: block;
     text-align: center;
     font-family: "VolvoBroadWeb";
+    font-size: 20px;
 }
 .navbar li{
     float: left;
@@ -100,3 +101,6 @@
     .glitch-text:hover::after {
         animation-duration: 0.5s; /* Szybsze zakłócenia przy najechaniu */
     }
+    a {
+    font-size: 20px; 
+}
