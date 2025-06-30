@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'Frutiger Bold';
+    font-family: 'Frutiger';
     font-style: normal;
     font-weight: normal;
-    src: local('Frutiger Bold'), url('Frutiger_bold.woff') format('woff');
+    src: local('Frutiger'), url('Frutiger.woff') format('woff');
     }
  pre {
         text-align: center;
@@ -10,15 +10,15 @@
         }
         h1 {text-align: center;
             color:white;
-          font-family: "Frutiger Bold";
+          font-family: "Frutiger";
         }
         h2 {text-align: center;
         color:white;
-         font-family: "Frutiger Bold";
+         font-family: "Frutiger";
         }
         div {text-align: center;
         color:white;
-         font-family: "Frutiger Bold";
+         font-family: "Frutiger";
         }
         .navbar ul{
     list-style-type: none;
@@ -26,7 +26,7 @@
     padding: 0px;
     margin: 0px;
     overflow: hidden;
-    font-family: "Frutiger Bold";
+    font-family: "Frutiger";
 }
 .navbar a{
     color: white;
@@ -34,12 +34,12 @@
     padding: 15px;
     display: block;
     text-align: center;
-    font-family: "Frutiger Bold";
+    font-family: "Frutiger";
     font-size: 20px;
 }
 .navbar li{
     float: left;
-    font-family: "Frutiger Bold";
+    font-family: "Frutiger";
 }
 
   /* Nowy efekt glitch */
