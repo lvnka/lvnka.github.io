@@ -1,27 +1,24 @@
 @font-face {
-    font-family: "VolvoBroadWeb";
-    src: url("https://db.onlinewebfonts.com/t/5a120f53a173c61fb547d0630663f80f.eot");
-    src: url("https://db.onlinewebfonts.com/t/5a120f53a173c61fb547d0630663f80f.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/5a120f53a173c61fb547d0630663f80f.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/5a120f53a173c61fb547d0630663f80f.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/5a120f53a173c61fb547d0630663f80f.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/5a120f53a173c61fb547d0630663f80f.svg#VolvoBroadWeb")format("svg");
-}
+    font-family: 'Frutiger Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Frutiger Bold'), url('Frutiger_bold.woff') format('woff');
+    }
  pre {
         text-align: center;
         color:white
         }
         h1 {text-align: center;
             color:white;
-          font-family: "VolvoBroadWeb";
+          font-family: "Frutiger Bold";
         }
         h2 {text-align: center;
         color:white;
-         font-family: "VolvoBroadWeb";
+         font-family: "Frutiger Bold";
         }
         div {text-align: center;
         color:white;
-         font-family: "VolvoBroadWeb";
+         font-family: "Frutiger Bold";
         }
         .navbar ul{
     list-style-type: none;
@@ -29,7 +26,7 @@
     padding: 0px;
     margin: 0px;
     overflow: hidden;
-    font-family: "VolvoBroadWeb";
+    font-family: "Frutiger Bold";
 }
 .navbar a{
     color: white;
@@ -37,12 +34,12 @@
     padding: 15px;
     display: block;
     text-align: center;
-    font-family: "VolvoBroadWeb";
+    font-family: "Frutiger Bold";
     font-size: 20px;
 }
 .navbar li{
     float: left;
-    font-family: "VolvoBroadWeb";
+    font-family: "Frutiger Bold";
 }
 
   /* Nowy efekt glitch */
@@ -50,7 +47,7 @@
         position: relative;
         display: inline-block;
         color: #fff;
-        font-family: "VolvoBroadWeb";;
+        font-family: "Frutiger Bold";;
         font-size: 1.5em;
         text-transform: uppercase;
         animation: glitch-flicker 3s linear infinite; /* Migotanie całego tekstu */
