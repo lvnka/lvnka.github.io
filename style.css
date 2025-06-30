@@ -1,24 +1,27 @@
 @font-face {
-    font-family: 'Frutiger 68 Bold Condensed';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Frutiger 68 Bold Condensed'), url('Frutiger.otf') format('opentype');
-    }
+    font-family: "Frutiger Pro 67 Bold Condensed";
+    src: url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.eot");
+    src: url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.svg#Frutiger Pro 67 Bold Condensed")format("svg");
+}
  pre {
         text-align: center;
         color:white
         }
         h1 {text-align: center;
             color:white;
-          font-family: "Frutiger 68 Bold Condensed";
+          font-family: "Frutiger Pro 67 Bold Condensed";
         }
         h2 {text-align: center;
         color:white;
-         font-family: "Frutiger 68 Bold Condensed";
+         font-family: "Frutiger Pro 67 Bold Condensed";
         }
         div {text-align: center;
         color:white;
-         font-family: "Frutiger 68 Bold Condensed";
+         font-family: "Frutiger Pro 67 Bold Condensed";
         }
         .navbar ul{
     list-style-type: none;
@@ -26,7 +29,7 @@
     padding: 0px;
     margin: 0px;
     overflow: hidden;
-    font-family: "Frutiger 68 Bold Condensed";
+    font-family: "Frutiger Pro 67 Bold Condensed";
 }
 .navbar a{
     color: white;
@@ -34,12 +37,12 @@
     padding: 15px;
     display: block;
     text-align: center;
-    font-family: "Frutiger 68 Bold Condensed";
+    font-family: "Frutiger Pro 67 Bold Condensed";
     font-size: 20px;
 }
 .navbar li{
     float: left;
-    font-family: "Frutiger 68 Bold Condensed";
+    font-family: "Frutiger Pro 67 Bold Condensed";
 }
 
   /* Nowy efekt glitch */
@@ -47,7 +50,7 @@
         position: relative;
         display: inline-block;
         color: #fff;
-        font-family: "Frutiger Bold";;
+        font-family: "Frutiger Pro 67 Bold Condensed";
         font-size: 1.5em;
         text-transform: uppercase;
         animation: glitch-flicker 3s linear infinite; /* Migotanie całego tekstu */
