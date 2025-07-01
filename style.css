@@ -14,14 +14,17 @@
         h1 {text-align: center;
             color:white;
           font-family: "Frutiger Pro 67 Bold Condensed";
+          font-size: medium;
         }
         h2 {text-align: center;
         color:white;
          font-family: "Frutiger Pro 67 Bold Condensed";
+         font-size: medium;
         }
         div {text-align: center;
         color:white;
          font-family: "Frutiger Pro 67 Bold Condensed";
+         font-size: medium;
         }
         .navbar ul{
     list-style-type: none;
