@@ -37,6 +37,39 @@ WYKONYWANIE CZYNNOŚCI O KTÓRYCH AUTOR OPOWIADA, JEST RÓWNIEŻ NIEETYCZNE ORAZ
  </a>
           </div>
 <h1> JEBAĆ USA I IZR*EL TE ŻYDOWSKIE KURWISKA </h1>
+<h2> Aktualnie znajduje się w : </h2>
+<script>
+const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=59.3294&longitude=18.0687&hourly=temperature_2m&past_days=3&forecast_days=3';
+
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('API nie działa dziwkoooo');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const hourly = data.hourly;
+                let html = '<table>';
+                html += '<tr><th>Data i godzina</th><th>Temperatura (°C)</th></tr>';
+                
+                // Iteracja przez wszystkie godziny i temperatury
+                hourly.time.forEach((time, index) => {
+                    const date = new Date(time);
+                    const formattedTime = date.toLocaleString('pl-PL');
+                    const temperatura = hourly.temperature_2m[index];
+                    html += `<tr><td>${formattedTime}</td><td>${temperatura}</td></tr>`;
+                });
+                
+                html += '</table>';
+                document.getElementById('wynik').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Błąd:', error);
+                document.getElementById('wynik').innerHTML = 
+                    '<p class="error">Spierdalaj xdxdxd</p>';
+            });
+</script>
 <script>
     const glitchElement = document.querySelector('.glitch-text');
     setInterval(() => {
@@ -44,6 +77,7 @@ WYKONYWANIE CZYNNOŚCI O KTÓRYCH AUTOR OPOWIADA, JEST RÓWNIEŻ NIEETYCZNE ORAZ
         setTimeout(() => glitchElement.style.transform = 'translate(0, 0)', 100);
     }, 2000);
 </script>
+
 <footer> <h2>Website made by lvnka</h2>
 <img src="NoINaChujPatrzyszNaNazweAlboPobieraszSmieciu.jpg" width="640" height="480">
 </body>
