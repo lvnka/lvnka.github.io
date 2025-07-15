@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Frutiger Pro 67 Bold Condensed";
+    src: url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.eot");
+    src: url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.svg#Frutiger Pro 67 Bold Condensed")format("svg");
+}
+
 * {
             margin: 0;
             padding: 0;
