@@ -418,8 +418,9 @@
         }
         .glados-message {
             position: fixed;
+            top: 30px;
             right: 30px;
-            bottom: 30px;
+            bottom: auto;
             background: #1a102a;
             color: #fff;
             border-radius: 16px;
