@@ -64,7 +64,7 @@
                     <div class="chamber-header">
                         <h3 class="chamber-title">whoami.torrent</h3>
                         <div class="chamber-subtitle">Introduction</div>
-                              
+
                         <a href="abtmeeng.html"><button class="portal-btn">Check me</button>
                     </div>
                     
@@ -237,17 +237,7 @@
                 }, 500);
             });
         });
-        
-        // Navigation active effect
-        const navItems = document.querySelectorAll('.nav-item a');
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                navItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-            });
-        });
-        
+
         // Animate companion cubes
         const cubes = document.querySelectorAll('.companion-cube');
         cubes.forEach(cube => {
