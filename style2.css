@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Frutiger Pro 67 Bold Condensed";
         }
         
         body {
@@ -81,7 +81,7 @@
         }
         
         .logo-text {
-            font-family: 'Orbitron', sans-serif;
+            font-family: "Frutiger Pro 67 Bold Condensed";
             font-size: 2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -94,7 +94,7 @@
         .status-bar {
             display: flex;
             gap: 20px;
-            font-family: 'Courier New', monospace;
+            font-family: "Frutiger Pro 67 Bold Condensed";
             font-size: 0.9rem;
         }
         
@@ -129,7 +129,7 @@
         }
         
         .section-title {
-            font-family: 'Orbitron', sans-serif;
+            font-family: "Frutiger Pro 67 Bold Condensed";
             font-size: 1.2rem;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -200,7 +200,7 @@
         }
         
         .chamber-title {
-            font-family: 'Orbitron', sans-serif;
+            font-family: "Frutiger Pro 67 Bold Condensed";
             font-size: 1.3rem;
             color: #fff;
             margin-bottom: 5px;
@@ -276,7 +276,7 @@
             color: #fff;
             border: none;
             border-radius: 3px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: "Frutiger Pro 67 Bold Condensed";
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -396,7 +396,7 @@
         }
         
         .footer-logo {
-            font-family: 'Orbitron', sans-serif;
+            font-family: "Frutiger Pro 67 Bold Condensed";
             font-size: 1.3rem;
             letter-spacing: 2px;
             color: #ff6a00;
