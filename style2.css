@@ -1,5 +1,4 @@
-
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -401,21 +400,34 @@
         }
         
         /* Glados Message */
+        .glados-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 1.2em;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .glados-close:hover {
+            opacity: 1;
+            color: #ff6a00;
+        }
         .glados-message {
             position: fixed;
-            bottom: 120px;
-            left: 20px;
-            max-width: 300px;
-            background: rgba(30, 30, 30, 0.95);
-            border: 1px solid #ff6a00;
-            border-radius: 8px;
-            padding: 15px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            box-shadow: 0 0 20px rgba(255, 106, 0, 0.4);
-            transform: translateX(-110%);
-            animation: slideIn 0.5s forwards 1s;
-            z-index: 100;
+            right: 30px;
+            bottom: 30px;
+            background: #1a102a;
+            color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px #000a;
+            padding: 24px 32px 24px 24px;
+            z-index: 1000;
+            max-width: 400px;
+            font-size: 1.05em;
         }
         
         .glados-header {

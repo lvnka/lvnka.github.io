@@ -207,7 +207,8 @@
     </div>
     
     <!-- GLaDOS Message -->
-    <div class="glados-message">
+    <div class="glados-message" id="glados-message">
+        <button class="glados-close" id="glados-close" title="Close">&times;</button>
         <div class="glados-header">
             <div class="glados-icon"><i class="fas fa-robot"></i></div>
             <div>GLaDOS v4.2</div>
@@ -289,6 +290,11 @@
                 }, 10);
             }, 20000);
         });
+        
+        // Zamknięcie popupu GLaDOS
+        document.getElementById('glados-close').onclick = function() {
+            document.getElementById('glados-message').style.display = 'none';
+        };
     </script>
 </body>
 </html>
