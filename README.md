@@ -1,2 +1,1 @@
-My Website
-# thats all abt it
+# Jestem demonem, bo przepracowałem piekło
