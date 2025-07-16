@@ -178,13 +178,20 @@
         }
         
         .chamber-card {
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid #333;
-            border-radius: 5px;
-            overflow: hidden;
-            transition: all 0.3s;
-            position: relative;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            background: #18122b;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #000a;
+            margin: 24px 0;
+            padding: 32px 24px;
+            /* Usuń lub nie ustawiaj height/min-height */
+            width: 100%;
+            max-width: 480px;
+            transition: box-shadow 0.2s;
+            /* Chamber dopasuje się do treści */
         }
         
         .chamber-card:hover {
