@@ -20,19 +20,16 @@
             color: #e0e0e0;
             min-height: 100vh;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(15, 15, 15, 0.8) 2px, transparent 2px),
-                linear-gradient(90deg, rgba(15, 15, 15, 0.8) 2px, transparent 2px),
-                linear-gradient(rgba(25, 25, 25, 0.4) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(25, 25, 25, 0.4) 1px, transparent 1px);
-            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-            background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+            display: flex;
+            flex-direction: column;
+            font-family: "Frutiger Pro 67 Bold Condensed";
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            flex: 1 0 auto;
         }
         
         /* Header Styles */
@@ -384,25 +381,28 @@
         
         /* Footer */
         footer {
-            background: rgba(5, 5, 5, 0.95);
-            padding: 20px 0;
-            border-top: 2px solid #6d02f7;
-            margin-top: 50px;
+            width: 100%;
+            background: #18122b;
+            color: #fff;
+            padding: 32px 0 16px 0;
+            text-align: center;
+            margin-top: auto;
+            box-shadow: 0 -2px 24px #000a;
+            font-size: 1em;
+            font-family: "Frutiger Pro 67 Bold Condensed";
         }
         
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .footer-logo {
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 0.08em;
+            font-size: 1.1em;
             font-family: "Frutiger Pro 67 Bold Condensed";
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            color: #6d02f7;
-            margin-bottom: 10px;
         }
         
         .copyright {
