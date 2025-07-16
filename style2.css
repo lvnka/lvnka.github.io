@@ -161,7 +161,7 @@
         .nav-item a:hover, .nav-item a.active {
             background: rgba(109, 2, 247, 0.2);
             color: #fff;
-            border-left: 4px solid #ff6a00;
+            border-left: 4px solid #6d02f7;
         }
         
         .nav-item i {
@@ -239,7 +239,7 @@
         }
         
         .difficulty-bar.active {
-            background: #ff6a00;
+            background: #6d02f7;
         }
         
         .chamber-stats {
