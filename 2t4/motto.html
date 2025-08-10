@@ -13,7 +13,25 @@
   </audio>
   <div id="word-container"></div>
   <script>
-    // SRT tekst w JS (możesz zamienić na fetch jeśli plik jest duży)
+    // SRT parser based on MooPlay (GPL-3.0) and other open source projects
+    // See code citations at the end of this file
+
+    function parseSubRip(srt) {
+      const blocks = srt.split(/\n{2,}/);
+      const entries = [];
+      for (const block of blocks) {
+        const lines = block.split('\n');
+        if (lines.length < 2) continue;
+        const timeMatch = lines[1].match(/(\d{2}):(\d{2}):(\d{2}),(\d{3})\s-->\s(\d{2}):(\d{2}):(\d{2}),(\d{3})/);
+        if (!timeMatch) continue;
+        const start = (+timeMatch[1])*3600 + (+timeMatch[2])*60 + (+timeMatch[3]) + (+timeMatch[4])/1000;
+        const text = lines.slice(2).join(' ').trim();
+        entries.push({start, text});
+      }
+      return entries;
+    }
+
+    // SRT text (you can replace with fetch if needed)
     const srtText = `
 1
 00:00:00,240 --> 00:00:00,560
@@ -432,30 +450,8 @@ na
 szczycie
 `;
 
-    function parseSRT(srt) {
-      const lines = srt.trim().split('\n');
-      const entries = [];
-      let i = 0;
-      while (i < lines.length) {
-        if (/^\d+$/.test(lines[i])) i++;
-        const timeMatch = lines[i]?.match(/(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/);
-        if (timeMatch) {
-          const start = parseInt(timeMatch[1])*3600 + parseInt(timeMatch[2])*60 + parseInt(timeMatch[3]) + parseInt(timeMatch[4])/1000;
-          i++;
-          let text = '';
-          while (lines[i] && lines[i].trim() !== '') {
-            text += lines[i] + ' ';
-            i++;
-          }
-          entries.push({start, text: text.trim()});
-        }
-        while (lines[i] && lines[i].trim() === '') i++;
-      }
-      return entries;
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      const subtitles = parseSRT(srtText);
+      const subtitles = parseSubRip(srtText);
       const wordContainer = document.getElementById('word-container');
       const audio = document.getElementById('audio');
       let lastIndex = -1;
@@ -471,5 +467,19 @@ szczycie
       });
     });
   </script>
+
+  <!--
+  # Code Citations
+
+  ## License: GPL_3_0
+  https://github.com/challet/MooPlay/tree/4fa9411714423cb91e91b9da4ead30488367270d/Source/Subtitle/Parser/SubRip.js
+
+  ## License: unknown
+  https://github.com/AvaiableF/TooHub/tree/6f14aeba16c0dc33871053338e01e3721b7cbe60/legendas/script.js
+
+  https://github.com/san650/subtitle/tree/d0bc4252b1b84fb167d09e68d4f1c977037f7f40/lib/subtitle/sub_rip/parser.ex
+
+  https://github.com/foreveryoung20001014/WeChatAudioPlayer_SMBU/tree/a6b842ebe8a6e06faf21af371eb91f0ba003c28e/pages/index/index.js
+  -->
 </body>
 </html>
