@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Words Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animacja fade + scale */
+    .word-enter {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .word-enter-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .word-exit {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .word-exit-active {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+  </style>
+</head>
+<body class="bg-black flex flex-col justify-center items-center min-h-screen text-white select-none">
+  <audio id="audio" controls class="mb-8 w-96 rounded bg-gray-800">
+    <!-- Tymczasowo podmienić na swój plik -->
+    <source src="2T4 - Adaptacja.flac" type="audio/mpeg" />
+    Twoja przeglądarka nie obsługuje elementu audio.
+  </audio>
+
+  <div id="word-container" class="text-5xl font-semibold tracking-wide h-20 flex items-center justify-center">
+    <!-- Tutaj pojawia się słowo -->
+  </div>
+
+  <script>
+    const text = `Spośród jasnej powierzchni, wyłania się samotny wilk
+Ma alfa watahy skill to najmocniejszy polski styl 
+To nie Bevery Hills 90210
+032 - tu każdy numer Polską trzęsie
+Kto ma znać zna i pozdrawia na mieście
+Kto zawiódł choć raz - odcinam już na wstępie
+Stopklatka, cięcie - reżyser przysnął
+A główny aktor wjebał argentyny kilo
+Wsysamy i po kolei z góry w dół
+Ostatnie tango, zanim wbijemy w to chuj
+Pierdolę serce - niech pęka, kurwa, na pół
+Albo nigdy, albo teraz i tu
+Jeden na stu - ponad bólem jak w jiu-jitsu
+Na szyi Chrystus, daleko od celebrytów
+Daleko od profitów, daleko od zysku
+Mówi Alfa Watahy - rozjebałem tu już wszystko`;
+
+    // Podziel tekst na słowa (uwzględniając znak nowej linii jako osobne słowo)
+    const words = text.split(/\s+/);
+
+    const wordContainer = document.getElementById('word-container');
+    const audio = document.getElementById('audio');
+
+    let currentIndex = 0;
+    let intervalId = null;
+
+    // Czas na jedno słowo w ms (dopasuj do tempa piosenki)
+    const WORD_DURATION = 700;
+
+    function showWord(index) {
+      if (index >= words.length) {
+        clearInterval(intervalId);
+        return;
+      }
+      wordContainer.textContent = words[index];
+    }
+
+    function startSync() {
+      if (intervalId) clearInterval(intervalId);
+      currentIndex = 0;
+      showWord(currentIndex);
+
+      intervalId = setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= words.length) {
+          clearInterval(intervalId);
+          return;
+        }
+        showWord(currentIndex);
+      }, WORD_DURATION);
+    }
+
+    audio.addEventListener('play', () => {
+      startSync();
+    });
+
+    audio.addEventListener('pause', () => {
+      clearInterval(intervalId);
+    });
+
+    audio.addEventListener('ended', () => {
+      clearInterval(intervalId);
+      currentIndex = 0;
+      wordContainer.textContent = '';
+    });
+  </script>
+</body>
+</html>
