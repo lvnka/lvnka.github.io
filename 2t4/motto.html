@@ -4,86 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Motto</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Animacja fade + scale */
-    .word-enter {
-      opacity: 0;
-      transform: scale(0.8);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .word-enter-active {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .word-exit {
-      opacity: 1;
-      transform: scale(1);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .word-exit-active {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-  </style>
+  <link rel="stylesheet" href="style2.css">
 </head>
-<body class="bg-black flex flex-col justify-center items-center min-h-screen text-white select-none">
-  <audio id="audio" controls preload="auto" class="mb-8 w-96 rounded bg-gray-800">
-    <!-- Tymczasowo podmienić na swój plik -->
+<body>
+  <audio id="audio" controls preload="auto">
     <source src="2T4 - Adaptacja.mp3" type="audio/mpeg" />
     Twoja przeglądarka nie obsługuje elementu audio.
   </audio>
 
-  <div id="word-container" class="text-5xl font-semibold tracking-wide h-20 flex items-center justify-center">
-    <!-- Tutaj pojawia się słowo -->
-  </div>
+  <div id="word-container"></div>
 
   <script>
-fetch('subtitles.srt')
-  .then(response => response.text())
-  .then(srtText => {
-    const subtitles = parseSRT(srtText);
-    const wordContainer = document.getElementById('word-container');
-    const audio = document.getElementById('audio');
-    let lastWord = '';
-    audio.addEventListener('timeupdate', () => {
-      const currentTime = audio.currentTime;
-      let current = '';
-      for (let i = 0; i < subtitles.length; i++) {
-        if (currentTime >= subtitles[i].start) {
-          current = subtitles[i].text;
-        } else {
-          break;
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('subtitles.srt')
+        .then(response => response.text())
+        .then(srtText => {
+          const subtitles = parseSRT(srtText);
+          const wordContainer = document.getElementById('word-container');
+          const audio = document.getElementById('audio');
+          let lastWord = '';
+          audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+            let current = '';
+            for (let i = 0; i < subtitles.length; i++) {
+              if (currentTime >= subtitles[i].start) {
+                current = subtitles[i].text;
+              } else {
+                break;
+              }
+            }
+            if (current !== lastWord) {
+              wordContainer.textContent = current;
+              lastWord = current;
+            }
+          });
+        });
+
+      function parseSRT(srt) {
+        const lines = srt.trim().split('\n');
+        const entries = [];
+        let i = 0;
+        while (i < lines.length) {
+          if (/^\d+$/.test(lines[i])) i++;
+          const timeMatch = lines[i]?.match(/(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/);
+          if (timeMatch) {
+            const start = parseInt(timeMatch[1])*3600 + parseInt(timeMatch[2])*60 + parseInt(timeMatch[3]) + parseInt(timeMatch[4])/1000;
+            i++;
+            let text = '';
+            while (lines[i] && lines[i].trim() !== '') {
+              text += lines[i] + ' ';
+              i++;
+            }
+            entries.push({start, text: text.trim()});
+          }
+          while (lines[i] && lines[i].trim() === '') i++;
         }
-      }
-      if (current !== lastWord) {
-        wordContainer.textContent = current;
-        lastWord = current;
+        return entries;
       }
     });
-  });
-
-function parseSRT(srt) {
-  const lines = srt.trim().split('\n');
-  const entries = [];
-  let i = 0;
-  while (i < lines.length) {
-    if (/^\d+$/.test(lines[i])) i++;
-    const timeMatch = lines[i]?.match(/(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/);
-    if (timeMatch) {
-      const start = parseInt(timeMatch[1])*3600 + parseInt(timeMatch[2])*60 + parseInt(timeMatch[3]) + parseInt(timeMatch[4])/1000;
-      i++;
-      let text = '';
-      while (lines[i] && lines[i].trim() !== '') {
-        text += lines[i] + ' ';
-        i++;
-      }
-      entries.push({start, text: text.trim()});
-    }
-    while (lines[i] && lines[i].trim() === '') i++;
-  }
-  return entries;
-}
   </script>
 </body>
 </html>
