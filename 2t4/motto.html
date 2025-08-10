@@ -11,10 +11,30 @@
     <source src="2T4 - Adaptacja.mp3" type="audio/mpeg" />
     Twoja przeglądarka nie obsługuje elementu audio.
   </audio>
-
   <div id="word-container"></div>
-
   <script>
+    function parseSRT(srt) {
+      const lines = srt.trim().split('\n');
+      const entries = [];
+      let i = 0;
+      while (i < lines.length) {
+        if (/^\d+$/.test(lines[i])) i++;
+        const timeMatch = lines[i]?.match(/(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/);
+        if (timeMatch) {
+          const start = parseInt(timeMatch[1])*3600 + parseInt(timeMatch[2])*60 + parseInt(timeMatch[3]) + parseInt(timeMatch[4])/1000;
+          i++;
+          let text = '';
+          while (lines[i] && lines[i].trim() !== '') {
+            text += lines[i] + ' ';
+            i++;
+          }
+          entries.push({start, text: text.trim()});
+        }
+        while (lines[i] && lines[i].trim() === '') i++;
+      }
+      return entries;
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       fetch('subtitles.srt')
         .then(response => response.text())
@@ -22,45 +42,21 @@
           const subtitles = parseSRT(srtText);
           const wordContainer = document.getElementById('word-container');
           const audio = document.getElementById('audio');
-          let lastWord = '';
+          let lastIndex = -1;
           audio.addEventListener('timeupdate', () => {
             const currentTime = audio.currentTime;
-            let current = '';
-            for (let i = 0; i < subtitles.length; i++) {
-              if (currentTime >= subtitles[i].start) {
-                current = subtitles[i].text;
-              } else {
-                break;
-              }
-            }
-            if (current !== lastWord) {
-              wordContainer.textContent = current;
-              lastWord = current;
+            let idx = subtitles.findIndex((entry, i) =>
+              i === subtitles.length - 1 ? true : currentTime < subtitles[i + 1].start
+            );
+            if (idx !== lastIndex && idx !== -1) {
+              wordContainer.textContent = subtitles[idx].text;
+              lastIndex = idx;
             }
           });
+        })
+        .catch(() => {
+          document.getElementById('word-container').textContent = "Nie można wczytać napisów!";
         });
-
-      function parseSRT(srt) {
-        const lines = srt.trim().split('\n');
-        const entries = [];
-        let i = 0;
-        while (i < lines.length) {
-          if (/^\d+$/.test(lines[i])) i++;
-          const timeMatch = lines[i]?.match(/(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/);
-          if (timeMatch) {
-            const start = parseInt(timeMatch[1])*3600 + parseInt(timeMatch[2])*60 + parseInt(timeMatch[3]) + parseInt(timeMatch[4])/1000;
-            i++;
-            let text = '';
-            while (lines[i] && lines[i].trim() !== '') {
-              text += lines[i] + ' ';
-              i++;
-            }
-            entries.push({start, text: text.trim()});
-          }
-          while (lines[i] && lines[i].trim() === '') i++;
-        }
-        return entries;
-      }
     });
   </script>
 </body>
