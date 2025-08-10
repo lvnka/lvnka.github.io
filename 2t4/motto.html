@@ -13,41 +13,51 @@
   </audio>
   <div id="word-container"></div>
   <script>
-  // MooPlay-inspired SRT parser
-  function parseSubRip(srt) {
-    const blocks = srt.trim().split(/\n{2,}/);
-    const entries = [];
-    for (const block of blocks) {
-      const lines = block.split('\n');
-      if (lines.length < 2) continue;
-      const timeMatch = lines[1].match(/(\d{2}):(\d{2}):(\d{2}),(\d{3})\s-->\s(\d{2}):(\d{2}):(\d{2}),(\d{3})/);
-      if (!timeMatch) continue;
-      const start = (+timeMatch[1])*3600 + (+timeMatch[2])*60 + (+timeMatch[3]) + (+timeMatch[4])/1000;
-      // rozbij tekst na słowa
-      const words = lines.slice(2).join(' ').trim().split(/\s+/);
-      words.forEach(word => {
-        entries.push({start, text: word});
-      });
-    }
-    return entries;
-  }
+const srtText = `1
+00:00:00,240 --> 00:00:00,560
+Instynkt
+2
+00:00:00,560 --> 00:00:00,720
+jak
+3
+00:00:00,720 --> 00:00:01,020
+presa
+... (reszta SRT)
+`;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const subtitles = parseSubRip(srtText);
-    const wordContainer = document.getElementById('word-container');
-    const audio = document.getElementById('audio');
-    let lastIndex = -1;
-    audio.addEventListener('timeupdate', () => {
-      const currentTime = audio.currentTime;
-      let idx = subtitles.findIndex((entry, i) =>
-        i === subtitles.length - 1 ? true : currentTime < subtitles[i + 1].start
-      );
-      if (idx !== lastIndex && idx !== -1) {
-        wordContainer.textContent = subtitles[idx].text;
-        lastIndex = idx;
-      }
+function parseSubRip(srt) {
+  const blocks = srt.trim().split(/\n{2,}/);
+  const entries = [];
+  for (const block of blocks) {
+    const lines = block.split('\n');
+    if (lines.length < 2) continue;
+    const timeMatch = lines[1].match(/(\d{2}):(\d{2}):(\d{2}),(\d{3})\s-->\s(\d{2}):(\d{2}):(\d{2}),(\d{3})/);
+    if (!timeMatch) continue;
+    const start = (+timeMatch[1])*3600 + (+timeMatch[2])*60 + (+timeMatch[3]) + (+timeMatch[4])/1000;
+    const words = lines.slice(2).join(' ').trim().split(/\s+/);
+    words.forEach(word => {
+      entries.push({start, text: word});
     });
+  }
+  return entries;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const subtitles = parseSubRip(srtText);
+  const wordContainer = document.getElementById('word-container');
+  const audio = document.getElementById('audio');
+  let lastIndex = -1;
+  audio.addEventListener('timeupdate', () => {
+    const currentTime = audio.currentTime;
+    let idx = subtitles.findIndex((entry, i) =>
+      i === subtitles.length - 1 ? true : currentTime < subtitles[i + 1].start
+    );
+    if (idx !== lastIndex && idx !== -1) {
+      wordContainer.textContent = subtitles[idx].text;
+      lastIndex = idx;
+    }
   });
+});
   </script>
 </body>
 </html>
