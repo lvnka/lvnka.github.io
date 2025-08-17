@@ -807,3 +807,87 @@ div {
     }
   }
 }
+/* GLaDOS Container */
+.glados-container {
+    position: relative;
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+/* GLaDOS Message Styling */
+.glados-message {
+    background: linear-gradient(135deg, #2b0a3e 0%, #4a1b6d 100%);
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+    color: white;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #8a2be2;
+}
+
+.glados-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #8a2be2;
+}
+
+.glados-icon {
+    color: #ff6b8b;
+    font-size: 1.5em;
+}
+
+.glados-content {
+    padding: 20px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    border-bottom: 1px solid #4a1b6d;
+}
+
+.glados-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Terminal Inside GLaDOS */
+.glados-terminal {
+    background: #1e1e1e;
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+.glados-terminal .terminal-header {
+    background: #333;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.glados-terminal .terminal-body {
+    padding: 15px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .glados-message {
+        border-radius: 8px;
+    }
+    
+    .glados-content {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
+
