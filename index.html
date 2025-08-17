@@ -77,73 +77,23 @@
   </div>
 </div>
 
-<style>
-.terminal {
-  background: #1e1e1e;
-  color: #f8f8f8;
-  border-radius: 8px;
-  padding: 0;
-  max-width: 600px;
-  font-family: 'Courier New', monospace;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.terminal-header {
-  background: #333;
-  padding: 8px 15px;
-  border-radius: 8px 8px 0 0;
-  display: flex;
-  align-items: center;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 6px;
-}
-
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
-
-.title {
-  margin-left: 10px;
-  color: #aaa;
-  font-size: 0.9em;
-}
-
-.terminal-body {
-  padding: 15px;
-  line-height: 1.5;
-}
-
-.prompt {
-  color: #6eff6e;
-  margin-right: 10px;
-}
-
-.heart {
-  color: #ff6b8b;
-}
-</style>
                 
                 <!-- Chamber 2 -->
-                <div class="chamber-card">
-                    <div class="chamber-header">
-                        <h3 class="chamber-title">Currently listening to :</h3>
-                        <div class="chamber-subtitle">2T4-Dyskotekowka24/7.wav</div>
+                <div class="terminal">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                        <span class="title">apple-music.torrent</span>
                     </div>
-                    <div class="chamber-content">
+                    <div class="terminal-body">
                          <iframe allowfullscreen src="https://descent.live/LvNa47" frameborder="0" width="360" height="380"></iframe>
                     </div>
                 </div>
                 <!-- Chamber 3 -->
-                <div class="chamber-card">
-                    <div class="chamber-header">
-                        <h3 class="chamber-title">Socials</h3>
-                        <div class="chamber-subtitle">Find me here</div>
-                    </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <span class="title">socials.html</span>
+                        <div class="terminal-body">
                     <div class="chamber-content" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: center; font-size: 2.2em;">
         <a href="https://www.instagram.com/lvnka420" target="_blank" title="Instagram" style="color:#6d02f7;"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@_luna47_" target="_blank" title="TikTok" style="color:#6d02f7;"><i class="fab fa-tiktok"></i></a>
@@ -164,14 +114,116 @@
                     </div>
                 </div>
               
-    <!-- GLaDOS Message -->
+    <!-- GLaDOS Message with Terminal -->
+<div class="glados-container">
     <div class="glados-message" id="glados-message">
         <button class="glados-close" id="glados-close" title="Close">&times;</button>
         <div class="glados-header">
             <div class="glados-icon" href="zakochalxssiezepobierasz.jpg"><i class="fas fa-robot"></i></div>
             <div>Lvnka</div>
         </div>
-        <div>FUCK USA AND ISR*EL THOSE JEW BITCHES!</div>
+        <div class="glados-content">FUCK USA AND ISR*EL THOSE JEW BITCHES!</div>
+        
+        <!-- Dodany Terminal -->
+        <div class="glados-terminal">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="title">system_diagnostic.sh</span>
+            </div>
+            <div class="terminal-body">
+                <p class="heart"><span class="prompt">$></span>Fuck them</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* GLaDOS Container */
+.glados-container {
+    position: relative;
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+/* GLaDOS Message Styling */
+.glados-message {
+    background: linear-gradient(135deg, #2b0a3e 0%, #4a1b6d 100%);
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+    color: white;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #8a2be2;
+}
+
+.glados-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #8a2be2;
+}
+
+.glados-icon {
+    color: #ff6b8b;
+    font-size: 1.5em;
+}
+
+.glados-content {
+    padding: 20px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    border-bottom: 1px solid #4a1b6d;
+}
+
+.glados-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Terminal Inside GLaDOS */
+.glados-terminal {
+    background: #1e1e1e;
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+.glados-terminal .terminal-header {
+    background: #333;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.glados-terminal .terminal-body {
+    padding: 15px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .glados-message {
+        border-radius: 8px;
+    }
+    
+    .glados-content {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
+</style>
     </div>
     
     <footer>

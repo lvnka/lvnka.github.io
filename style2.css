@@ -515,3 +515,51 @@
          font-family: "Frutiger Pro 67 Bold Condensed";
          
         }
+.terminal {
+  background: #1e1e1e;
+  color: #f8f8f8;
+  border-radius: 8px;
+  padding: 0;
+  max-width: 600px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.terminal-header {
+  background: #333;
+  padding: 8px 15px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.title {
+  margin-left: 10px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.terminal-body {
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.prompt {
+  color: #6eff6e;
+  margin-right: 10px;
+}
+
+.heart {
+  color: #ff6b8b;
+}

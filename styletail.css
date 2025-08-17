@@ -199,11 +199,27 @@
   .block {
     display: block;
   }
+  .flex {
+    display: flex;
+  }
+  .table {
+    display: table;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
+  .resize {
+    resize: both;
+  }
   .flex-wrap {
     flex-wrap: wrap;
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .pt-50 {
     padding-top: calc(var(--spacing) * 50);
@@ -222,6 +238,13 @@
   }
   .text-center {
     text-align: center;
+  }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
@@ -694,6 +717,53 @@ div {
   color: white;
   font-family: "Frutiger Pro 67 Bold Condensed";
 }
+.terminal {
+  background: #1e1e1e;
+  color: #f8f8f8;
+  border-radius: 8px;
+  padding: 0;
+  max-width: 600px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.terminal-header {
+  background: #333;
+  padding: 8px 15px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.red {
+  background: #ff5f56;
+}
+.yellow {
+  background: #ffbd2e;
+}
+.green {
+  background: #27c93f;
+}
+.title {
+  margin-left: 10px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+.terminal-body {
+  padding: 15px;
+  line-height: 1.5;
+}
+.prompt {
+  color: #6eff6e;
+  margin-right: 10px;
+}
+.heart {
+  color: #ff6b8b;
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
@@ -714,6 +784,16 @@ div {
   syntax: "*";
   inherits: false;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -722,6 +802,8 @@ div {
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-border-style: solid;
+      --tw-outline-style: solid;
     }
   }
 }
