@@ -62,25 +62,71 @@
             <!-- Test Chambers Grid -->
             <div class="test-chambers">
                 <!-- Chamber 1 -->
-                <div class="chamber-card">
-                    <div class="chamber-header">
-                        <h3 class="chamber-title">whoami.torrent</h3>
-                        <div class="chamber-subtitle">Introduction</div>
-                    </div>
-                    <div class="chamber-content">
-                        <div class="companion-cube">
-                            <div class="cube-face front">❤️</div>
-                            <div class="cube-face back">❤️</div>
-                            <div class="cube-face right">❤️</div>
-                            <div class="cube-face left">❤️</div>
-                            <div class="cube-face top">❤️</div>
-                            <div class="cube-face bottom">❤️</div>
-                        </div>
-                           <h2>Hi I'm lvnka, and i'm from Poland. I really love listening to music (especially polish rap, edm, house, big room - generally all of Electronic songs), and Computer Science</h2>
-    <h2>I love doing some projects with pc's, xboxes, phones like custom romimng, crashing kernels, rummaging through the computer, setting up servers and many more</h2>
-    <h2>In love in my wonderful boyfriend Dominik :3</h2>
-                    </div>
-                </div>
+                <div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="title">whoami.sh</span>
+  </div>
+  <div class="terminal-body">
+    <p><span class="prompt">$></span> Hi, I'm Ivnka from Poland</p>
+    <p><span class="prompt">$></span> Interests: Polish rap, EDM, Computer Science</p>
+    <p><span class="prompt">$></span> Hobbies: Custom ROMs, kernel hacking, servers</p>
+    <p class="heart"><span class="prompt">$></span> ❤️ In love with Dominik :3</p>
+  </div>
+</div>
+
+<style>
+.terminal {
+  background: #1e1e1e;
+  color: #f8f8f8;
+  border-radius: 8px;
+  padding: 0;
+  max-width: 600px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.terminal-header {
+  background: #333;
+  padding: 8px 15px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.title {
+  margin-left: 10px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.terminal-body {
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.prompt {
+  color: #6eff6e;
+  margin-right: 10px;
+}
+
+.heart {
+  color: #ff6b8b;
+}
+</style>
                 
                 <!-- Chamber 2 -->
                 <div class="chamber-card">
