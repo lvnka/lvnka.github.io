@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @font-face {
     font-family: "Frutiger Pro 67 Bold Condensed";
     src: url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.eot");
@@ -84,6 +85,7 @@
             letter-spacing: 2px;
             background: linear-gradient(to right, #6d02f7, #4d01b0);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 10px rgba(109, 2, 247, 0.3);
         }
